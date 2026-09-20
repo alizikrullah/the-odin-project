@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <% messages.forEach((message, index) => { %>
+        <div>
+            <p><strong><%= message.user %></strong>: <%= message.text %></p>
+            <p><small><%= message.added %></small></p>
+            <a href="/messages/<%= index %>">Open Detail Message</a>
+        </div>
+    <% }) %>
+
+    <a href="/new">Tulis pesan baru</a>
+</body>
+</html>
