@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Item</title></head>
+<body>
+  <h1>Edit Item</h1>
+  <form method="POST" action="/items/<%= item.id %>/edit">
+    <label>Nama: <input type="text" name="name" value="<%= item.name %>"></label><br>
+    <label>Harga: <input type="number" name="price" value="<%= item.price %>"></label><br>
+    <label>Stok: <input type="number" name="stock" value="<%= item.stock %>"></label><br>
+    <label>Kategori:
+      <select name="category_id">
+        <% categories.forEach((category) => { %>
+          <option value="<%= category.id %>" <%= category.id === item.category_id ? 'selected' : '' %>>
+            <%= category.name %>
+          </option>
+        <% }) %>
+      </select>
+    </label><br>
+    <button type="submit">Simpan</button>
+  </form>
+  <a href="/categories">Kembali</a>
+</body>
+</html>

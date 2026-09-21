@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Tambah Item</title></head>
+<body>
+  <h1>Tambah Item Baru</h1>
+  <form method="POST" action="/items/new">
+    <label>Nama: <input type="text" name="name"></label><br>
+    <label>Harga: <input type="number" name="price"></label><br>
+    <label>Stok: <input type="number" name="stock"></label><br>
+    <label>Kategori:
+      <select name="category_id">
+        <% categories.forEach((category) => { %>
+          <option value="<%= category.id %>"><%= category.name %></option>
+        <% }) %>
+      </select>
+    </label><br>
+    <button type="submit">Simpan</button>
+  </form>
+  <a href="/categories">Kembali</a>
+</body>
+</html>

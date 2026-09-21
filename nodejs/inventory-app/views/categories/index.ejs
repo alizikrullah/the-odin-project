@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <ul>
+        <% categories.forEach((category) => { %>
+            <li>
+                <a href="/categories/<%= category.id %>"><%= category.name %></a>
+                <a href="/categories/<%= category.id %>/edit">Edit</a>
+                <form method="POST" action="/categories/<%= category.id %>/delete" style="display:inline">
+                    <button type="submit">Hapus</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/categories/new">Tambah Kategori Baru</a>
+</body>
+</html>

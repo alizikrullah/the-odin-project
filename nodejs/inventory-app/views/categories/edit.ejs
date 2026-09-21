@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Kategori</title></head>
+<body>
+  <h1>Edit Kategori</h1>
+  <form method="POST" action="/categories/<%= category.id %>/edit">
+    <label>Nama: <input type="text" name="name" value="<%= category.name %>"></label>
+    <button type="submit">Simpan</button>
+  </form>
+  <a href="/categories">Kembali</a>
+</body>
+</html>

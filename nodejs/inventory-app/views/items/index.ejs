@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <ul>
+
+        <% items.forEach((item) => { %>
+            <li>
+                <strong><%= item.name &></strong>
+                - Rp <%= item.price %>
+                - Stok: <%= item.stock %>
+            </li>
+        <% }) %>
+    </ul>
+
+    <a href="/items/new">Tambah Item Baru</a>
+    <br>
+    <a href="/categories">Ke Halaman Kategori</a>
+</body>
+</html>
