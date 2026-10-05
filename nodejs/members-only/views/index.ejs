@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>Members Only</title></head>
+<body>
+  <h1>Members Only Club</h1>
+
+  <% if (user) { %>
+    <p>Halo, <%= user.name %>!</p>
+    <a href="/new-post">Tulis Post Baru</a> |
+    <% if (user.role === 'guest') { %>
+      <a href="/join">Join Club</a> |
+    <% } %>
+    <a href="/logout">Logout</a>
+  <% } else { %>
+    <a href="/login">Login</a> |
+    <a href="/sign-up">Daftar</a>
+  <% } %>
+
+  <hr>
+
+  <% posts.forEach((post) => { %>
+    <div>
+      <h3><%= post.title %></h3>
+      <p><%= post.content %></p>
+      <% if (user && user.role !== 'guest') { %>
+        <small>Oleh: <%= post.name %> | <%= post.created_at %></small>
+      <% } %>
+      <% if (user && user.role === 'admin') { %>
+        <form method="POST" action="/delete/<%= post.id %>">
+          <button type="submit">Hapus</button>
+        </form>
+      <% } %>
+    </div>
+    <hr>
+  <% }) %>
+</body>
+</html>
