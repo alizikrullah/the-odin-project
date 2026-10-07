@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title><%= file.name %></title></head>
+<body>
+  <h1>Detail File</h1>
+  <p>Nama: <%= file.name %></p>
+  <p>Ukuran: <%= file.size %> bytes</p>
+  <p>Diupload: <%= file.createdAt %></p>
+  <a href="<%= file.url %>" download>Download</a>
+  <br>
+  <a href="/folders/<%= file.folderId %>">Kembali</a>
+</body>
+</html>

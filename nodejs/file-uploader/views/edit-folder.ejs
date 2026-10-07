@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Edit Folder</title></head>
+<body>
+  <h1>Edit Folder</h1>
+  <form method="POST" action="/folders/<%= folder.id %>/edit">
+    <label>Nama Folder: <input type="text" name="name" value="<%= folder.name %>"></label><br>
+    <button type="submit">Simpan</button>
+  </form>
+  <a href="/folders">Kembali</a>
+</body>
+</html>

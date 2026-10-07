@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title><%= folder.name %></title></head>
+<body>
+  <h1><%= folder.name %></h1>
+  <a href="/folders">Kembali</a>
+
+  <h2>Upload File</h2>
+  <form method="POST" action="/folders/<%= folder.id %>/upload" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+  </form>
+
+  <h2>File dalam folder ini:</h2>
+  <% if (folder.files.length === 0) { %>
+    <p>Belum ada file.</p>
+  <% } else { %>
+    <ul>
+      <% folder.files.forEach((file) => { %>
+        <li>
+          <a href="/files/<%= file.id %>"><%= file.name %></a>
+          <form method="POST" action="/files/<%= file.id %>/<%= folder.id %>/delete" style="display:inline">
+            <button type="submit">Hapus</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>

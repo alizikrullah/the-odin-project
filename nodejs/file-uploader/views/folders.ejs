@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><title>My Drive</title></head>
+<body>
+  <h1>My Drive</h1>
+  <p>Halo, <%= user.name %>! <a href="/logout">Logout</a></p>
+  <a href="/folders/new">+ Buat Folder Baru</a>
+  <hr>
+  <% if (folders.length === 0) { %>
+    <p>Belum ada folder.</p>
+  <% } else { %>
+    <ul>
+      <% folders.forEach((folder) => { %>
+        <li>
+          <a href="/folders/<%= folder.id %>"><%= folder.name %></a>
+          <a href="/folders/<%= folder.id %>/edit">Edit</a>
+          <form method="POST" action="/folders/<%= folder.id %>/delete" style="display:inline">
+            <button type="submit">Hapus</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>
